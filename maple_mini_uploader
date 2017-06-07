@@ -1,0 +1,14 @@
+#!/bin/bash
+echo "Uploading of FW to Maple Mini"
+array=(`find ./ -name "*.bin"`)
+echo "Searched: $array"
+echo "------------------------------------------------------------"
+#dfu-util -d 0x1eaf:0x0003 -a 1 -D $array -R
+#dfu-util -d 0x1eaf:0x0003 -a 0 -s 0x08005000:leave -D $array -R
+dfu-util -d 0x1eaf:0x0003 -a 1 -D $array -d 0x08005000:leave -R
+echo "------------------------------------------------------------"
+echo "Uploading of FW to Maple Mini is finished"
+echo "Maple Mini Uploader v0.1"
+echo "Made by Petus - 2015"
+echo "https://chiptron.cz"
+echo "https://time4ee.com"
